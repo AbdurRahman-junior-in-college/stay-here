@@ -29,7 +29,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const socket = io("http://localhost:5000");
+const socket = io("https://stay-here-backend.onrender.com");
 const App = () => {
   const [notification, setNotification] = useState("");
 
