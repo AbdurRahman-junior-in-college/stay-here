@@ -29,18 +29,18 @@ const queryClient = new QueryClient({
   },
 });
 
-const socket = io("https://stay-here-backend.onrender.com");
+// const socket = io("https://stay-here-backend.onrender.com");
 const App = () => {
   const [notification, setNotification] = useState("");
 
-  useEffect(() => {
-    socket.on("notify_booking", (data) => {
-      setNotification(`New Booking Available`);
-      toast.info("New Booking Available");
-    });
+  // useEffect(() => {
+  //   socket.on("notify_booking", (data) => {
+  //     setNotification(`New Booking Available`);
+  //     toast.info("New Booking Available");
+  //   });
 
-    return () => socket.off("notify_booking");
-  }, []);
+  //   return () => socket.off("notify_booking");
+  // }, []);
 
   return (
     <DarkModeProvider>
