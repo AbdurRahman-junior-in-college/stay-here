@@ -25,7 +25,7 @@ import { useAdmin } from "../features/authentication/useAdmin";
 
 const UserAvatar = () => {
   const { admin } = useAdmin();
-  const hostname = "http://localhost:5000";
+  const hostname = "https://stay-here-backend.onrender.com";
   return (
     <StyledUserAvatar>
       <Avatar
