@@ -5,6 +5,8 @@ export const adminLogin = async ({ password, email }) => {
     password,
     email,
   });
+  console.log(data);
+  console.log(error);
   console.log(email, password);
 
   if (error) {
