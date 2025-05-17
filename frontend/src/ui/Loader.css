@@ -1,0 +1,11 @@
+@keyframes loader-inimation {
+    from {
+        rotate: 0deg;
+    }to{
+        rotate: 360deg;
+    }
+}
+
+.my-loader{
+    animation: loader-inimation 1s linear infinite;
+}
