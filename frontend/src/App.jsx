@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 
 import { DarkModeProvider } from "./features/conext/DarkModeContext";
 import Account from "./pages/Account";
