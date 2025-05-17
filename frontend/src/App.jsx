@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 
 import { DarkModeProvider } from "./features/conext/DarkModeContext";
 import Account from "./pages/Account";
@@ -29,18 +29,18 @@ const queryClient = new QueryClient({
   },
 });
 
-// const socket = io("https://stay-here-backend.onrender.com");
+const socket = io("https://stay-here-backend.onrender.com");
 const App = () => {
   const [notification, setNotification] = useState("");
 
-  // useEffect(() => {
-  //   socket.on("notify_booking", (data) => {
-  //     setNotification(`New Booking Available`);
-  //     toast.info("New Booking Available");
-  //   });
+  useEffect(() => {
+    socket.on("notify_booking", (data) => {
+      setNotification(`New Booking Available`);
+      toast.info("New Booking Available");
+    });
 
-  //   return () => socket.off("notify_booking");
-  // }, []);
+    return () => socket.off("notify_booking");
+  }, []);
 
   return (
     <DarkModeProvider>
@@ -54,17 +54,17 @@ const App = () => {
               </ProtectedRoute>
             }
           >
-            <Route index element={<Navigate replace to={"dashboard"} />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="booking" element={<Bookings />} />
-            <Route path="booking/:id" element={<Booking />} />
-            <Route path="checkin/:id" element={<CheckIn />} />
-            <Route path="cabins" element={<Cabins />} />
-            <Route path="user" element={<NewUser />} />
-            <Route path="setting" element={<Setting />} />
-            <Route path="account" element={<Account />} />
+            <Route index element={<Navigate replace to={"/dashboard"} />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/booking" element={<Bookings />} />
+            <Route path="/booking/:id" element={<Booking />} />
+            <Route path="/checkin/:id" element={<CheckIn />} />
+            <Route path="/cabins" element={<Cabins />} />
+            <Route path="/user" element={<NewUser />} />
+            <Route path="/setting" element={<Setting />} />
+            <Route path="/account" element={<Account />} />
           </Route>
-          <Route path="login" element={<Login />} />
+          <Route path="/login" element={<Login />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <ToastContainer />
